@@ -15,15 +15,12 @@ Quarto portfolio website for IBM 6500, Module 10.
 
 ## Before publishing
 
-1. Replace `images/headshot.jpg` with your photo (same file name).
-2. Find and replace `lewiswaddell` with your GitHub username in `_quarto.yml`, `index.qmd`, and `M10_Deliverables.qmd`.
-3. Update the LinkedIn and email links in `index.qmd`.
-4. Swap `data/rkr_newsletter.csv` for real data (or Case 31) when you have it. Keep the same column names.
+1. If your repo is not named `M10`, replace `M10` in the links in `_quarto.yml` and `M10_Deliverables.qmd`.
 
 ## R packages needed
 
 ```r
-install.packages(c("dplyr", "plotly", "DT", "rmarkdown", "knitr"))
+install.packages(c("dplyr", "readr", "tidyr", "purrr", "stringr", "plotly", "rmarkdown", "knitr"))
 ```
 
 ## Publish to GitHub Pages
@@ -33,6 +30,6 @@ install.packages(c("dplyr", "plotly", "DT", "rmarkdown", "knitr"))
 3. On GitHub, go to **Settings > Pages**, choose **Deploy from a branch**, branch **main**, folder **/docs**, and click **Save**.
 4. Wait a minute, refresh, and your site appears at `https://lewiswaddell.github.io/M10/`.
 
-## Sample data
+## Data
 
-`scripts/make_sample_data.R` builds the illustrative dataset. Rerun it only if you want to regenerate the sample.
+`data/concierge-canva/` holds the 14 Canva website insights exports for The Collins Concierge, copied from the M06 assignment. The dashboard removes the one byte-identical duplicate, leaving 13 issues.

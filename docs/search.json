@@ -1,122 +1,66 @@
 [
   {
-    "objectID": "portfolio/shopify-high-value.html",
-    "href": "portfolio/shopify-high-value.html",
-    "title": "Predicting High-Value Customers",
-    "section": "",
-    "text": "Which shoppers are most likely to become high-value customers?"
-  },
-  {
-    "objectID": "portfolio/shopify-high-value.html#the-question",
-    "href": "portfolio/shopify-high-value.html#the-question",
-    "title": "Predicting High-Value Customers",
-    "section": "",
-    "text": "Which shoppers are most likely to become high-value customers?"
-  },
-  {
-    "objectID": "portfolio/shopify-high-value.html#my-role",
-    "href": "portfolio/shopify-high-value.html#my-role",
-    "title": "Predicting High-Value Customers",
-    "section": "My Role",
-    "text": "My Role\nI owned Analytics Objective 4 in a Group 2 term project for IBM 6540 Marketing Data Science."
-  },
-  {
-    "objectID": "portfolio/shopify-high-value.html#tools",
-    "href": "portfolio/shopify-high-value.html#tools",
-    "title": "Predicting High-Value Customers",
-    "section": "Tools",
-    "text": "Tools\n\nR and tidymodels for modeling workflows\nLogistic regression, Lasso, and Random Forest as candidate classifiers"
-  },
-  {
-    "objectID": "portfolio/optimark.html",
-    "href": "portfolio/optimark.html",
-    "title": "OptiMark Society Leadership",
-    "section": "",
-    "text": "As President of the OptiMark Digital Marketing and Analytics Society, I connect students with hands-on marketing projects and industry partners."
-  },
-  {
-    "objectID": "portfolio/optimark.html#my-role",
-    "href": "portfolio/optimark.html#my-role",
-    "title": "OptiMark Society Leadership",
-    "section": "",
-    "text": "As President of the OptiMark Digital Marketing and Analytics Society, I connect students with hands-on marketing projects and industry partners."
-  },
-  {
-    "objectID": "portfolio/optimark.html#highlights",
-    "href": "portfolio/optimark.html#highlights",
-    "title": "OptiMark Society Leadership",
-    "section": "Highlights",
-    "text": "Highlights\n\nClient partnerships such as the CPP Farm Store collaboration\nContent and events that grow the society’s community"
-  },
-  {
     "objectID": "listings.html",
     "href": "listings.html",
     "title": "Portfolio Listings",
     "section": "",
-    "text": "A listing is a page that automatically gathers other pages and shows them as cards, a list, or a table. Instead of hand typing a link for every project, you point Quarto to a folder and it builds the index for you, with titles, images, dates, and categories pulled from each page’s front matter.\nThat makes listings ideal for a portfolio: add a new project file, re-render, and it appears."
+    "text": "A listing is a page that automatically gathers items and shows them as cards, a list, or a table. Quarto can pull items from a folder of pages or from a YAML file, and builds the titles, images, dates, and categories into a browsable index.\nThat makes listings ideal for a portfolio: add a new item, re-render, and it appears."
   },
   {
     "objectID": "listings.html#what-is-a-listing",
     "href": "listings.html#what-is-a-listing",
     "title": "Portfolio Listings",
     "section": "",
-    "text": "A listing is a page that automatically gathers other pages and shows them as cards, a list, or a table. Instead of hand typing a link for every project, you point Quarto to a folder and it builds the index for you, with titles, images, dates, and categories pulled from each page’s front matter.\nThat makes listings ideal for a portfolio: add a new project file, re-render, and it appears."
+    "text": "A listing is a page that automatically gathers items and shows them as cards, a list, or a table. Quarto can pull items from a folder of pages or from a YAML file, and builds the titles, images, dates, and categories into a browsable index.\nThat makes listings ideal for a portfolio: add a new item, re-render, and it appears."
   },
   {
     "objectID": "listings.html#my-projects",
     "href": "listings.html#my-projects",
     "title": "Portfolio Listings",
     "section": "My Projects",
-    "text": "My Projects\nClick a category on the right to filter, or open any card to read the full project.\n\n\n\n\n\n\n\n\n\n\nCPP Farm Store Social Strategy\n\n\n\nSocial Media\n\nContent Strategy\n\n\n\nA content strategy for the Cal Poly Pomona Farm Store’s Instagram and Facebook.\n\n\n\nNov 1, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nRKR Newsletter A/B Testing\n\n\n\nAnalytics\n\nA/B Testing\n\nCulminating Project\n\n\n\nTesting newsletter design in The Collins Concierge to grow reservations at The Restaurant at Kellogg Ranch.\n\n\n\nOct 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting High-Value Customers\n\n\n\nMachine Learning\n\nR\n\nE-commerce\n\n\n\nClassification models on a Shopify e-commerce dataset to flag customers worth prioritizing.\n\n\n\nSep 5, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nOptiMark Society Leadership\n\n\n\nLeadership\n\nSocial Media\n\n\n\nLeading Cal Poly Pomona’s Digital Marketing and Analytics Society.\n\n\n\nAug 25, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "My Projects\nClick a category on the right to filter, or open a card to view the full project.\n\n\n\n\n\n\n\n\n\n\nNewsletter Design and Reservation Growth\n\n\nRKR Newsletter Proposal Slides\n\n\n\nCulminating Project\n\nA/B Testing\n\nReveal.js\n\n\n\nA Reveal.js proposal for my MSDM culminating experience project, testing how the design of The Restaurant at Kellogg Ranch’s section in The Collins Concierge affects…\n\n\n\nNov 15, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nFarm Store Social Content Strategy\n\n\nOptiMark × Farm Store\n\n\n\nSocial Media\n\nContent Strategy\n\nOptiMark\n\n\n\nA repeatable system for turning seasonal products, short-form video and store moments into visits.\n\n\n\nNov 1, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "listings.html#how-it-works",
     "href": "listings.html#how-it-works",
     "title": "Portfolio Listings",
     "section": "How It Works",
-    "text": "How It Works\n\nCreate a folder for your items, such as portfolio/.\nAdd one .qmd file per project with a title, date, description, image, and categories.\nAdd a listing: block to the page that should display them.\nPlace a div with the listing’s id where the listing should appear.\n\n\nStep 2: One project file\n\n\nportfolio/rkr-newsletter.qmd\n\n---\ntitle: \"RKR Newsletter A/B Testing\"\ndescription: \"Testing newsletter design to grow restaurant reservations.\"\ndate: 2026-10-05\nimage: rkr.png\ncategories: [Analytics, A/B Testing, Culminating Project]\n---\n\n\n\nStep 3: The listing block on this page\n\n\nlistings.qmd\n\nlisting:\n  - id: portfolio-grid\n    contents: portfolio        # which folder to gather\n    type: grid                 # default, grid, or table\n    sort: \"date desc\"          # newest first\n    categories: true           # clickable category filter\n    fields: [image, title, description, categories, date]\n\n\n\nStep 4: Where it appears\n::: {#portfolio-grid}\n:::"
+    "text": "How It Works\nMy two projects already live on their own published sites, so instead of making a page for each one, I listed them in a single YAML file and pointed each item’s path to its live URL.\n\nCreate a YAML file for your items, such as portfolio/items.yml.\nAdd one entry per project with a title, description, link, image, date, and categories.\nAdd a listing: block to the page that should display them.\nPlace a div with the listing’s id where the listing should appear.\n\n\nStep 2: One project entry\n\n\nportfolio/items.yml\n\n- title: \"Farm Store Social Content Strategy\"\n  subtitle: \"OptiMark × Farm Store\"\n  path: https://lewiswaddell.github.io/OptimarkxFarmstoreStrategy/\n  image: portfolio/farmstore.png\n  date: 2026-11-01\n  categories: [Social Media, Content Strategy, OptiMark]\n\n\n\nStep 3: The listing block on this page\n\n\nlistings.qmd\n\nlisting:\n  - id: portfolio-grid\n    contents: portfolio/items.yml   # where the items come from\n    type: grid                      # default, grid, or table\n    sort: \"date desc\"               # newest first\n    categories: true                # clickable category filter\n    fields: [image, title, subtitle, description, categories, date]\n\n\n\nStep 4: Where it appears\n::: {#portfolio-grid}\n:::"
   },
   {
     "objectID": "listings.html#three-listing-types",
     "href": "listings.html#three-listing-types",
     "title": "Portfolio Listings",
     "section": "Three Listing Types",
-    "text": "Three Listing Types\n\n\n\n\n\n\n\n\nType\nLooks like\nBest for\n\n\n\n\ndefault\nA blog style list with a thumbnail beside each entry\nBlogs and news posts\n\n\ngrid\nCards in columns\nVisual portfolios (used above)\n\n\ntable\nA sortable, searchable table\nLong lists people need to scan (used below)"
-  },
-  {
-    "objectID": "listings.html#the-same-projects-as-a-table",
-    "href": "listings.html#the-same-projects-as-a-table",
-    "title": "Portfolio Listings",
-    "section": "The Same Projects as a Table",
-    "text": "The Same Projects as a Table\nThis second listing reads the same folder with type: table, plus a search box (filter-ui) and clickable column sorting (sort-ui). One page can hold several listings as long as each has its own id.\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\nNov 1, 2026\n\n\nCPP Farm Store Social Strategy\n\n\nSocial Media, Content Strategy\n\n\n\n\n\n\nOct 5, 2026\n\n\nRKR Newsletter A/B Testing\n\n\nAnalytics, A/B Testing, Culminating Project\n\n\n\n\n\n\nSep 5, 2026\n\n\nPredicting High-Value Customers\n\n\nMachine Learning, R, E-commerce\n\n\n\n\n\n\nAug 25, 2026\n\n\nOptiMark Society Leadership\n\n\nLeadership, Social Media\n\n\n\n\n\n\nNo matching items"
+    "text": "Three Listing Types\n\n\n\n\n\n\n\n\nType\nLooks like\nBest for\n\n\n\n\ndefault\nA blog style list with a thumbnail beside each entry\nBlogs and news posts\n\n\ngrid\nCards in columns\nVisual portfolios (used above)\n\n\ntable\nA sortable, searchable table\nLong lists people need to scan"
   },
   {
     "objectID": "listings.html#useful-listing-options",
     "href": "listings.html#useful-listing-options",
     "title": "Portfolio Listings",
     "section": "Useful Listing Options",
-    "text": "Useful Listing Options\n\ncontents: a folder, a list of files, or a pattern like \"portfolio/*.qmd\".\nsort: order items by date, title, or any field, ascending or descending.\ncategories: show a clickable category list built from each item’s tags.\nfilter-ui and sort-ui: add a search box and sort menu for visitors.\npage-size: split long listings into pages.\nfeed: true: create an RSS feed so followers get your new posts.\n\n\n\n\n\n\n\nTipWhy this matters for a portfolio\n\n\n\nRecruiters skim. A listing gives them a clean, filterable overview, and the categories show the range of your skills at a glance."
+    "text": "Useful Listing Options\n\ncontents: a folder, a YAML file, a list of files, or a pattern like \"posts/*.qmd\".\nsort: order items by date, title, or any field, ascending or descending.\ncategories: show a clickable category list built from each item’s tags.\nfilter-ui and sort-ui: add a search box and sort menu for visitors.\npage-size: split long listings into pages.\nfeed: true: create an RSS feed so followers get your new posts."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Leeann Lewis-Waddell",
     "section": "",
-    "text": "I turn audience insight into content that moves people to act.\nI am a graduate student in the Master of Science in Digital Marketing (MSDM) program at Cal Poly Pomona and President of the OptiMark Digital Marketing and Analytics Society. With a background in media production, I bring together video, social media, and creative strategy to build campaigns that connect with real audiences."
+    "text": "Future Director of Digital Marketing and collegiate educator\nI am a graduate student in the Master of Science in Digital Marketing (MSDM) program at Cal Poly Pomona and President of the OptiMark Digital Marketing and Analytics Society. I also do marketing and communications work for the MSDM program."
   },
   {
     "objectID": "index.html#hi-im-lee.",
     "href": "index.html#hi-im-lee.",
     "title": "Leeann Lewis-Waddell",
     "section": "",
-    "text": "I turn audience insight into content that moves people to act."
+    "text": "Future Director of Digital Marketing and collegiate educator"
   },
   {
     "objectID": "index.html#career-aspirations",
     "href": "index.html#career-aspirations",
     "title": "Leeann Lewis-Waddell",
     "section": "Career Aspirations",
-    "text": "Career Aspirations\nMy path has two goals that feed each other:\n\nDirector of Digital Marketing: lead a team and a brand’s full digital strategy, from creative direction and content to campaigns, budgets, and results.\nCollegiate educator: teach digital marketing and social media marketing at the college level, helping students build practical, job-ready skills."
+    "text": "Career Aspirations\n\nDirector of Digital Marketing\nCollegiate educator: teach digital marketing and social media marketing at the college level"
   },
   {
     "objectID": "index.html#skills",
@@ -130,7 +74,7 @@
     "href": "index.html#education",
     "title": "Leeann Lewis-Waddell",
     "section": "Education",
-    "text": "Education\n\nM.S., Digital Marketing, Cal Poly Pomona, 2027 (expected)\nCulminating project: Building Sustainable Demand for The Restaurant at Kellogg Ranch\n\n\nA.S., Marketing Management, Mt. San Antonio College, 2024\n\nCertificate: Small Business Management I\nCertificate: Social Media Marketing\n\n\n\nB.A., Communications (Media Production), University of Houston, 2012"
+    "text": "Education\n\nM.S., Digital Marketing, Cal Poly Pomona, 2027\nCulminating project: Building Sustainable Demand for The Restaurant at Kellogg Ranch\n\n\nA.S., Marketing Management, Mt. San Antonio College, 2024\n\nCertificate: Small Business Management I\nCertificate: Social Media Marketing\n\n\n\nB.A., Communications (Media Production), University of Houston, 2012"
   },
   {
     "objectID": "index.html#explore-this-site",
@@ -144,35 +88,28 @@
     "href": "dashboard.html",
     "title": "RKR Newsletter Dashboard",
     "section": "",
-    "text": "The Restaurant at Kellogg Ranch (RKR) is promoted every week in The Collins Concierge, the Collins College newsletter. My MSDM culminating project asks a simple business question:\n\nIf we change how RKR’s section looks, do more readers click “Reserve a Table” and book on OpenTable?\n\nOpen the interactive dashboard →"
+    "text": "The Restaurant at Kellogg Ranch (RKR) is promoted every week in The Collins Concierge, the Collins College newsletter. My MSDM culminating project asks:\n\nIf we change how RKR’s section looks, do more readers click through and book a table?\n\nBefore testing any change, we need a baseline. This dashboard shows how the RKR section performed in recent issues.\nOpen the interactive dashboard →"
   },
   {
     "objectID": "dashboard.html#what-this-dashboard-answers",
     "href": "dashboard.html#what-this-dashboard-answers",
     "title": "RKR Newsletter Dashboard",
     "section": "",
-    "text": "The Restaurant at Kellogg Ranch (RKR) is promoted every week in The Collins Concierge, the Collins College newsletter. My MSDM culminating project asks a simple business question:\n\nIf we change how RKR’s section looks, do more readers click “Reserve a Table” and book on OpenTable?\n\nOpen the interactive dashboard →"
+    "text": "The Restaurant at Kellogg Ranch (RKR) is promoted every week in The Collins Concierge, the Collins College newsletter. My MSDM culminating project asks:\n\nIf we change how RKR’s section looks, do more readers click through and book a table?\n\nBefore testing any change, we need a baseline. This dashboard shows how the RKR section performed in recent issues.\nOpen the interactive dashboard →"
   },
   {
-    "objectID": "dashboard.html#how-the-test-works",
-    "href": "dashboard.html#how-the-test-works",
+    "objectID": "dashboard.html#what-you-can-explore",
+    "href": "dashboard.html#what-you-can-explore",
     "title": "RKR Newsletter Dashboard",
-    "section": "How the Test Works",
-    "text": "How the Test Works\nThe project runs in two phases during the 2026 to 2027 school year:\n\nFall: button placement. Move the “Reserve a Table” button to the upper left of RKR’s section and compare against past issues.\nSpring: image vs. video. Keep the button fixed and split each issue so half of readers see an image and half see a video."
-  },
-  {
-    "objectID": "dashboard.html#what-you-can-do-in-the-dashboard",
-    "href": "dashboard.html#what-you-can-do-in-the-dashboard",
-    "title": "RKR Newsletter Dashboard",
-    "section": "What You Can Do in the Dashboard",
-    "text": "What You Can Do in the Dashboard\n\nOverviewFall TestSpring TestData\n\n\nHeadline numbers for every tracked issue: open rate, “Reserve a Table” click rate, and OpenTable reservations, plus a week by week trend.\n\n\nCompares the upper-left button against the baseline, with a two-proportion test to check whether the lift is more than chance.\n\n\nCompares image and video formats side by side using the same click and reservation measures.\n\n\nA searchable, sortable table of every issue so you can check any number yourself."
+    "section": "What You Can Explore",
+    "text": "What You Can Explore\n\nOverviewAudience and LinksNext TestsData\n\n\nHeadline numbers and the RKR click rate for each issue, measured against the pooled baseline.\n\n\nPage views per issue, RKR’s share of all link clicks, where views came from, and which links readers clicked most.\n\n\nThe Fall and Spring tests planned for Analytics Objective 1, and the methods that will compare them.\n\n\nThe issue-level summary behind every chart."
   },
   {
     "objectID": "dashboard.html#key-measures",
     "href": "dashboard.html#key-measures",
     "title": "RKR Newsletter Dashboard",
     "section": "Key Measures",
-    "text": "Key Measures\n\n\n\n\n\n\n\n\nMeasure\nHow it is calculated\nWhy it matters\n\n\n\n\nOpen rate\nOpens ÷ recipients\nShows whether readers see the newsletter at all\n\n\nReserve click rate\n“Reserve a Table” clicks ÷ opens\nShows whether RKR’s section earns attention\n\n\nReservations\nOpenTable bookings attributed to the newsletter\nThe business outcome RKR cares about\n\n\n\n\n\n\n\n\n\nNoteAbout the data\n\n\n\nReal issue data is still being collected. The dashboard currently runs on an illustrative sample (data/rkr_newsletter.csv) built to match the test design. Swapping in real data only requires replacing that one CSV file; every chart and statistic updates on the next render."
+    "text": "Key Measures\n\n\n\n\n\n\n\n\nMeasure\nHow it is calculated\nWhy it matters\n\n\n\n\nPage views\nCanva-reported views per issue\nShows how many readers reached the newsletter\n\n\nRKR clicks\nClicks to cpp.edu/rkr pages\nThe measurable step before booking\n\n\nRKR click rate\nRKR clicks ÷ page views\nThe primary outcome for AO1\n\n\n\n\n\n\n\n\n\nNoteAbout the data\n\n\n\nAll numbers come from Canva website insights for The Collins Concierge, exported as one CSV per issue for the last 12 weeks. Fourteen exports were received; one byte-identical duplicate was removed, leaving 13 issues. The “Reserve a Table” button links to the RKR website, so clicks to cpp.edu/rkr pages are counted as RKR clicks. Issue dates and OpenTable reservations are not available yet."
   },
   {
     "objectID": "styling.html",
@@ -236,54 +173,5 @@
     "title": "Styling a Quarto Website with CSS and SCSS",
     "section": "Tips for Styling Your Own Site",
     "text": "Tips for Styling Your Own Site\n\nStart with a theme: pick a Bootswatch theme like cosmo or flatly, then customize only what you need.\nSet variables first: changing $primary does more than dozens of manual rules.\nInspect the page: right click any element and choose Inspect to find the class name you want to style.\nRe-render after edits: run quarto render so the new styles reach the docs folder before you push.\n\n\n\n\n\n\n\nNoteLearn more\n\n\n\nThe Quarto HTML Theming guide lists every variable you can change."
-  },
-  {
-    "objectID": "portfolio/farmstore-social.html",
-    "href": "portfolio/farmstore-social.html",
-    "title": "CPP Farm Store Social Strategy",
-    "section": "",
-    "text": "Through OptiMark’s collaboration with the CPP Farm Store, I am building a social media content strategy for its Instagram and Facebook accounts."
-  },
-  {
-    "objectID": "portfolio/farmstore-social.html#the-project",
-    "href": "portfolio/farmstore-social.html#the-project",
-    "title": "CPP Farm Store Social Strategy",
-    "section": "",
-    "text": "Through OptiMark’s collaboration with the CPP Farm Store, I am building a social media content strategy for its Instagram and Facebook accounts."
-  },
-  {
-    "objectID": "portfolio/farmstore-social.html#focus",
-    "href": "portfolio/farmstore-social.html#focus",
-    "title": "CPP Farm Store Social Strategy",
-    "section": "Focus",
-    "text": "Focus\n\nContent pillars that reflect the store’s products and campus roots\nA posting plan the store team can keep up week to week"
-  },
-  {
-    "objectID": "portfolio/rkr-newsletter.html",
-    "href": "portfolio/rkr-newsletter.html",
-    "title": "RKR Newsletter A/B Testing",
-    "section": "",
-    "text": "Can a better designed section in The Collins Concierge drive more OpenTable reservations for The Restaurant at Kellogg Ranch?"
-  },
-  {
-    "objectID": "portfolio/rkr-newsletter.html#the-question",
-    "href": "portfolio/rkr-newsletter.html#the-question",
-    "title": "RKR Newsletter A/B Testing",
-    "section": "",
-    "text": "Can a better designed section in The Collins Concierge drive more OpenTable reservations for The Restaurant at Kellogg Ranch?"
-  },
-  {
-    "objectID": "portfolio/rkr-newsletter.html#my-role",
-    "href": "portfolio/rkr-newsletter.html#my-role",
-    "title": "RKR Newsletter A/B Testing",
-    "section": "My Role",
-    "text": "My Role\nI lead Analytics Objective 1, Newsletter Design and Reservation Growth, within a five objective team project."
-  },
-  {
-    "objectID": "portfolio/rkr-newsletter.html#approach",
-    "href": "portfolio/rkr-newsletter.html#approach",
-    "title": "RKR Newsletter A/B Testing",
-    "section": "Approach",
-    "text": "Approach\n\nFall: move the “Reserve a Table” button to the upper left and compare with past issues.\nSpring: A/B test image vs. video formats with the button fixed.\n\nSee the dashboard →"
   }
 ]

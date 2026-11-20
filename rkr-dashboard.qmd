@@ -1,5 +1,5 @@
 ---
-title: "RKR Newsletter Performance"
+title: "RKR Newsletter Baseline"
 format:
   dashboard:
     orientation: rows
@@ -17,207 +17,195 @@ execute:
 ```{r}
 #| label: setup
 library(dplyr)
+library(readr)
+library(tidyr)
+library(purrr)
+library(stringr)
 library(plotly)
-library(DT)
 
-nl <- read.csv("data/rkr_newsletter.csv") |>
-  mutate(issue_date = as.Date(issue_date),
-         open_rate  = opens / recipients,
-         click_rate = reserve_clicks / opens)
+# Canva website insights exports for The Collins Concierge (last 12 weeks).
+# File names are export timestamps, so sorting them keeps issue order.
+files <- list.files("data/concierge-canva", pattern = "\\.csv$", full.names = TRUE) |>
+  sort()
 
-# Fixed color per variant (validated for color vision deficiency)
-pal <- c("Baseline" = "#8A8F98", "Upper-left button" = "#16804A",
-         "Image" = "#6A5BC4", "Video" = "#B87A00")
-sym <- c("Baseline" = "circle", "Upper-left button" = "square",
-         "Image" = "diamond", "Video" = "triangle-up")
+raw_files    <- tibble(file = files, md5 = unname(tools::md5sum(files)))
+unique_files <- raw_files |> distinct(md5, .keep_all = TRUE)   # drop byte-identical duplicates
+n_files <- nrow(raw_files)
+n_dupes <- n_files - nrow(unique_files)
+
+issues <- unique_files |>
+  mutate(issue = row_number(),
+         data  = map(file, read_csv, show_col_types = FALSE)) |>
+  select(issue, data) |>
+  unnest(data)
+
+issue_summary <- issues |>
+  group_by(issue) |>
+  summarise(
+    views       = sum(Count[Dimension == "country"]),
+    mobile      = sum(Count[Dimension == "device" & Name == "Mobile"]),
+    link_clicks = sum(Count[Dimension == "link"]),
+    rkr_clicks  = sum(Count[Dimension == "link" & str_detect(Name, "cpp\\.edu/rkr")]),
+    .groups = "drop") |>
+  mutate(ctr = rkr_clicks / views,
+         rkr_share = rkr_clicks / link_clicks)
+
+pooled_ctr   <- sum(issue_summary$rkr_clicks) / sum(issue_summary$views)
+mobile_share <- sum(issue_summary$mobile) / sum(issue_summary$views)
 
 pct <- function(x, d = 1) paste0(formatC(100 * x, format = "f", digits = d), "%")
-
-summ <- nl |>
-  group_by(phase, variant) |>
-  summarise(issues = n(), recipients = sum(recipients), opens = sum(opens),
-            clicks = sum(reserve_clicks), reservations = sum(reservations),
-            .groups = "drop") |>
-  mutate(open_rate = opens / recipients, click_rate = clicks / opens,
-         variant = factor(variant, levels = names(pal))) |>
-  arrange(variant)
-
-base <- filter(summ, variant == "Baseline")
-fall <- filter(summ, variant == "Upper-left button")
-img  <- filter(summ, variant == "Image")
-vid  <- filter(summ, variant == "Video")
-
-fall_test   <- prop.test(c(fall$clicks, base$clicks), c(fall$opens, base$opens))
-spring_test <- prop.test(c(vid$clicks, img$clicks), c(vid$opens, img$opens))
+green <- "#16804A"; gold <- "#B87A00"; gray <- "#8A8F98"
 ```
 
 # Overview
 
-## Row {height=20%}
+## Row {height=22%}
 
 ```{r}
 #| content: valuebox
-#| title: "Issues tracked"
-list(icon = "envelope-paper", color = "#DCEBE0", value = length(unique(nl$issue_date)))
-```
-
-```{r}
-#| content: valuebox
-#| title: "Average open rate"
-list(icon = "envelope-open", color = "#EEF3EF", value = pct(sum(nl$opens) / sum(nl$recipients)))
+#| title: "Concierge issues analyzed"
+list(icon = "envelope-paper", color = "#DCEBE0", value = nrow(issue_summary))
 ```
 
 ```{r}
 #| content: valuebox
-#| title: "Reserve click rate, baseline → best"
-list(icon = "hand-index-thumb", color = "#FFE3A1",
-     value = paste(pct(base$click_rate, 2), "→", pct(max(summ$click_rate), 2)))
+#| title: "Total page views"
+list(icon = "eye", color = "#EEF3EF", value = format(sum(issue_summary$views), big.mark = ","))
 ```
 
 ```{r}
 #| content: valuebox
-#| title: "Attributed reservations"
-list(icon = "calendar-check", color = "#CFE8D8", value = sum(nl$reservations))
-```
-
-## Row {height=80%}
-
-```{r}
-#| title: "Reserve a Table click rate by issue"
-plot_ly(nl, x = ~issue_date, y = ~click_rate, color = ~variant, colors = pal,
-        symbol = ~variant, symbols = sym,
-        type = "scatter", mode = "lines+markers",
-        line = list(width = 2), marker = list(size = 9),
-        hovertemplate = "%{x|%b %d, %Y}<br>Click rate: %{y:.2%}<extra>%{fullData.name}</extra>") |>
-  layout(yaxis = list(title = "Clicks ÷ opens", tickformat = ".1%", rangemode = "tozero"),
-         xaxis = list(title = ""), hovermode = "closest",
-         legend = list(orientation = "h", y = -0.15))
-```
-
-```{r}
-#| title: "Click rate by variant (all issues combined)"
-plot_ly(summ, x = ~variant, y = ~click_rate, color = ~variant, colors = pal,
-        type = "bar", text = ~pct(click_rate, 2), textposition = "outside",
-        hovertemplate = "%{x}<br>Click rate: %{y:.2%}<extra></extra>") |>
-  layout(showlegend = FALSE, yaxis = list(title = "Clicks ÷ opens", tickformat = ".1%"),
-         xaxis = list(title = ""), bargap = 0.45)
-```
-
-# Fall Test
-
-## Row {height=25%}
-
-```{r}
-#| content: valuebox
-#| title: "Baseline click rate"
-list(icon = "dash-circle", color = "#EEF3EF", value = pct(base$click_rate, 2))
+#| title: "Clicks to RKR pages"
+list(icon = "hand-index-thumb", color = "#FFE3A1", value = sum(issue_summary$rkr_clicks))
 ```
 
 ```{r}
 #| content: valuebox
-#| title: "Upper-left button click rate"
-list(icon = "arrow-up-left-circle", color = "#CFE8D8", value = pct(fall$click_rate, 2))
+#| title: "Baseline RKR click rate"
+list(icon = "bullseye", color = "#CFE8D8", value = pct(pooled_ctr))
 ```
+
+## Row {height=78%}
 
 ```{r}
-#| content: valuebox
-#| title: "Relative lift"
-list(icon = "graph-up-arrow", color = "#FFE3A1",
-     value = pct(fall$click_rate / base$click_rate - 1, 0))
+#| title: "RKR click rate by issue (dashed line = pooled baseline)"
+plot_ly(issue_summary, x = ~factor(issue), y = ~ctr, type = "bar",
+        marker = list(color = green),
+        text = ~rkr_clicks, textposition = "outside",
+        hovertemplate = "Issue %{x}<br>Click rate: %{y:.1%}<br>RKR clicks: %{text}<extra></extra>") |>
+  layout(xaxis = list(title = "Concierge issue (oldest to newest)"),
+         yaxis = list(title = "RKR clicks ÷ page views", tickformat = ".1%"),
+         shapes = list(list(type = "line", xref = "paper", x0 = 0, x1 = 1,
+                            y0 = pooled_ctr, y1 = pooled_ctr,
+                            line = list(color = gold, width = 2, dash = "dash"))),
+         annotations = list(list(xref = "paper", x = 1, y = pooled_ctr, xanchor = "right",
+                                 yanchor = "bottom", showarrow = FALSE,
+                                 text = paste("Pooled baseline:", pct(pooled_ctr)))),
+         bargap = 0.35)
 ```
 
-## Row {height=75%}
-
-```{r}
-#| title: "Weekly click rate: baseline vs. upper-left button"
-fall_df <- filter(nl, variant %in% c("Baseline", "Upper-left button")) |>
-  group_by(variant) |> mutate(week = row_number()) |> ungroup()
-plot_ly(fall_df, x = ~week, y = ~click_rate, color = ~variant, colors = pal,
-        symbol = ~variant, symbols = sym, type = "scatter", mode = "lines+markers",
-        line = list(width = 2), marker = list(size = 9),
-        hovertemplate = "Week %{x}<br>%{y:.2%}<extra>%{fullData.name}</extra>") |>
-  layout(xaxis = list(title = "Issue number within phase", dtick = 1),
-         yaxis = list(title = "Clicks ÷ opens", tickformat = ".1%", rangemode = "tozero"),
-         legend = list(orientation = "h", y = -0.2))
-```
-
-::: {.card title="What the test says"}
+::: {.card title="What the baseline shows"}
 ```{r}
 #| output: asis
 cat(sprintf(
-"**Result:** The upper-left button earned a **%s** click rate versus **%s** for past issues.\n\n**Is it real?** A two-proportion test gives p = **%s**. %s\n\n**Reservations:** %d bookings across %d Fall issues, compared with %d across %d baseline issues.",
-  pct(fall$click_rate, 2), pct(base$click_rate, 2),
-  format.pval(fall_test$p.value, digits = 2, eps = 0.001),
-  ifelse(fall_test$p.value < 0.05,
-         "That is below 0.05, so the lift is unlikely to be chance.",
-         "That is above 0.05, so we cannot rule out chance yet."),
-  fall$reservations, fall$issues, base$reservations, base$issues))
+"- **%d issues, %s page views.** That is about **%d views per issue**.\n- **%d clicks reached RKR pages** (cpp.edu/rkr), a pooled click rate of **%s**.\n- **%d issues had zero RKR clicks.** The best issue reached **%s**.\n- **%s of views came from mobile**, so the RKR section has to work on a phone screen.\n\nThis is the pre-test baseline. The Fall test moves the \"Reserve a Table\" button to the upper left and compares new issues against these numbers.",
+  nrow(issue_summary), format(sum(issue_summary$views), big.mark = ","),
+  round(mean(issue_summary$views)),
+  sum(issue_summary$rkr_clicks), pct(pooled_ctr),
+  sum(issue_summary$rkr_clicks == 0), pct(max(issue_summary$ctr)),
+  pct(mobile_share, 0)))
 ```
 :::
 
-# Spring Test
+# Audience and Links
 
-## Row {height=25%}
+## Row {height=50%}
 
 ```{r}
-#| content: valuebox
-#| title: "Image click rate"
-list(icon = "image", color = "#E4E0F5", value = pct(img$click_rate, 2))
+#| title: "Page views by issue"
+plot_ly(issue_summary, x = ~factor(issue), y = ~views, type = "bar",
+        marker = list(color = green),
+        hovertemplate = "Issue %{x}<br>Views: %{y}<extra></extra>") |>
+  layout(xaxis = list(title = "Concierge issue"), yaxis = list(title = "Page views"),
+         bargap = 0.35)
 ```
 
 ```{r}
-#| content: valuebox
-#| title: "Video click rate"
-list(icon = "play-btn", color = "#FFE3A1", value = pct(vid$click_rate, 2))
+#| title: "RKR's share of all link clicks"
+plot_ly(issue_summary, x = ~factor(issue), y = ~rkr_share, type = "bar",
+        marker = list(color = gold),
+        customdata = ~paste(rkr_clicks, "of", link_clicks),
+        hovertemplate = "Issue %{x}<br>%{y:.1%} of link clicks (%{customdata})<extra></extra>") |>
+  layout(xaxis = list(title = "Concierge issue"),
+         yaxis = list(title = "RKR clicks ÷ all link clicks", tickformat = ".0%"),
+         bargap = 0.35)
+```
+
+## Row {height=50%}
+
+```{r}
+#| title: "Where views came from (all issues)"
+sources <- issues |>
+  filter(Dimension == "source") |>
+  group_by(Name) |> summarise(views = sum(Count), .groups = "drop") |>
+  arrange(desc(views)) |>
+  mutate(Name = if_else(row_number() <= 5, Name, "Other")) |>
+  group_by(Name) |> summarise(views = sum(views), .groups = "drop") |>
+  arrange(views) |>
+  mutate(Name = factor(Name, levels = Name))
+plot_ly(sources, y = ~Name, x = ~views, type = "bar", orientation = "h",
+        marker = list(color = green),
+        hovertemplate = "%{y}: %{x} views<extra></extra>") |>
+  layout(xaxis = list(title = "Page views"), yaxis = list(title = ""))
 ```
 
 ```{r}
-#| content: valuebox
-#| title: "Reservations: image vs. video"
-list(icon = "calendar-check", color = "#CFE8D8",
-     value = paste(img$reservations, "vs.", vid$reservations))
+#| title: "Most clicked links (all issues)"
+links <- issues |>
+  filter(Dimension == "link") |>
+  mutate(Name = str_remove(Name, "^https?://(www\\.)?") |> str_remove("/$")) |>
+  group_by(Name) |> summarise(clicks = sum(Count), .groups = "drop") |>
+  arrange(desc(clicks)) |> slice_head(n = 10) |>
+  mutate(is_rkr = str_detect(Name, "cpp\\.edu/rkr"),
+         label  = str_trunc(Name, 45)) |>
+  arrange(clicks) |>
+  mutate(label = factor(label, levels = unique(label)))
+plot_ly(links, y = ~label, x = ~clicks, type = "bar", orientation = "h",
+        marker = list(color = ~if_else(is_rkr, gold, gray)),
+        customdata = ~Name,
+        hovertemplate = "%{customdata}<br>%{x} clicks<extra></extra>") |>
+  layout(xaxis = list(title = "Clicks"), yaxis = list(title = ""))
 ```
 
-## Row {height=75%}
+# Next Tests
 
-```{r}
-#| title: "Weekly click rate: image vs. video (split issues)"
-spring_df <- filter(nl, variant %in% c("Image", "Video"))
-plot_ly(spring_df, x = ~issue_date, y = ~click_rate, color = ~variant, colors = pal,
-        symbol = ~variant, symbols = sym, type = "scatter", mode = "lines+markers",
-        line = list(width = 2), marker = list(size = 9),
-        hovertemplate = "%{x|%b %d}<br>%{y:.2%}<extra>%{fullData.name}</extra>") |>
-  layout(xaxis = list(title = ""),
-         yaxis = list(title = "Clicks ÷ opens", tickformat = ".1%", rangemode = "tozero"),
-         legend = list(orientation = "h", y = -0.2))
-```
+## Row
 
-::: {.card title="What the test says"}
-```{r}
-#| output: asis
-cat(sprintf(
-"**Result:** Video earned a **%s** click rate versus **%s** for image.\n\n**Is it real?** A two-proportion test gives p = **%s**. %s\n\n**Takeaway:** %s",
-  pct(vid$click_rate, 2), pct(img$click_rate, 2),
-  format.pval(spring_test$p.value, digits = 2, eps = 0.001),
-  ifelse(spring_test$p.value < 0.05,
-         "That is below 0.05, so the difference is unlikely to be chance.",
-         "That is above 0.05, so we cannot rule out chance yet."),
-  ifelse(vid$click_rate > img$click_rate,
-         "Lead RKR's section with video when production time allows.",
-         "Images perform as well or better, and they cost less to produce.")))
-```
+::: {.card title="Analytics Objective 1: Newsletter Design and Reservation Growth"}
+**Goal:** compare RKR click rates and attributed OpenTable reservations across section designs, changing one element per phase.
+
+| Phase | What changes | Compared against |
+|-------|--------------|------------------|
+| Fall 2026 | "Reserve a Table" button moves to the upper left | This baseline (past issues) |
+| Spring 2027 | Image vs. video, button fixed in the upper left | Each other |
+
+**Methods**
+
+- **Two-proportion z-test:** compares click rates between conditions at α = 0.05.
+- **Independent-samples t-test:** compares average weekly attributed OpenTable reservations between designs.
+
+**Not yet available:** issue dates, the first upper-left-button issue, and OpenTable reservations by link. These pages will add the comparisons once that data comes in.
 :::
 
 # Data
 
+## Row {height=100%}
+
 ```{r}
-#| title: "Issue level data (illustrative sample until real data is collected)"
-nl |>
-  transmute(`Issue date` = issue_date, Phase = phase, Variant = variant,
-            Recipients = recipients, Opens = opens, `Open rate` = open_rate,
-            `Reserve clicks` = reserve_clicks, `Click rate` = click_rate,
-            Reservations = reservations) |>
-  datatable(rownames = FALSE, filter = "top",
-            options = list(pageLength = 15, dom = "tip")) |>
-  formatPercentage(c("Open rate", "Click rate"), 2)
+#| title: "Issue-level summary from Canva website insights"
+issue_summary |>
+  transmute(Issue = issue, Views = views, `Mobile views` = mobile,
+            `Mobile %` = pct(mobile / views), `All link clicks` = link_clicks,
+            `RKR clicks` = rkr_clicks, `RKR click rate` = pct(ctr)) |>
+  knitr::kable(align = "rrrrrrr")
 ```

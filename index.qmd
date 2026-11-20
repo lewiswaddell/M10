@@ -1,6 +1,6 @@
 ---
 title: "Leeann Lewis-Waddell"
-subtitle: "Digital marketer · Creative strategist · Content producer"
+subtitle: "MS in Digital Marketing Candidate · Cal Poly Pomona"
 image: images/headshot.jpg
 toc: false
 about:
@@ -22,17 +22,15 @@ about:
 
 ::: {.hero}
 ## Hi, I'm Lee.
-[I turn audience insight into content that moves people to act.]{.tagline}
+[Future Director of Digital Marketing and collegiate educator]{.tagline}
 :::
 
-I am a graduate student in the **Master of Science in Digital Marketing (MSDM)** program at Cal Poly Pomona and President of the **OptiMark Digital Marketing and Analytics Society**. With a background in media production, I bring together video, social media, and creative strategy to build campaigns that connect with real audiences.
+I am a graduate student in the **Master of Science in Digital Marketing (MSDM)** program at Cal Poly Pomona and President of the **OptiMark Digital Marketing and Analytics Society**. I also do marketing and communications work for the MSDM program.
 
 ## Career Aspirations
 
-My path has two goals that feed each other:
-
-- **Director of Digital Marketing:** lead a team and a brand's full digital strategy, from creative direction and content to campaigns, budgets, and results.
-- **Collegiate educator:** teach digital marketing and social media marketing at the college level, helping students build practical, job-ready skills.
+- **Director of Digital Marketing**
+- **Collegiate educator:** teach digital marketing and social media marketing at the college level
 
 ## Skills
 
@@ -50,7 +48,7 @@ My path has two goals that feed each other:
 ## Education
 
 ::: {.card-gold}
-**M.S., Digital Marketing**, Cal Poly Pomona, *2027 (expected)*\
+**M.S., Digital Marketing**, Cal Poly Pomona, *2027*\
 Culminating project: *Building Sustainable Demand for The Restaurant at Kellogg Ranch*
 :::
 

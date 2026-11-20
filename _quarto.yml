@@ -7,10 +7,10 @@ project:
     - rkr-dashboard.qmd
     - styling.qmd
     - listings.qmd
-    - portfolio/*.qmd
   resources:
-    - data/rkr_newsletter.csv
+    - data/concierge-canva/*.csv
     - .nojekyll
+    - portfolio/*.png
 
 execute:
   freeze: auto              # re-run R code only when a page's source changes
