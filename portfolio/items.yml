@@ -1,0 +1,14 @@
+- title: "Newsletter Design and Reservation Growth"
+  subtitle: "RKR Newsletter Proposal Slides"
+  description: "A Reveal.js proposal for my MSDM culminating experience project, testing how the design of The Restaurant at Kellogg Ranch's section in The Collins Concierge affects reservation clicks."
+  path: https://lewiswaddell.github.io/M06/M06-1/rkr-newsletter-proposal.html
+  image: portfolio/rkr.png
+  date: 2026-11-15
+  categories: [Culminating Project, A/B Testing, Reveal.js]
+- title: "Farm Store Social Content Strategy"
+  subtitle: "OptiMark × Farm Store"
+  description: "A repeatable system for turning seasonal products, short-form video and store moments into visits."
+  path: https://lewiswaddell.github.io/OptimarkxFarmstoreStrategy/
+  image: portfolio/farmstore.png
+  date: 2026-11-01
+  categories: [Social Media, Content Strategy, OptiMark]

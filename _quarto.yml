@@ -1,0 +1,57 @@
+project:
+  type: website
+  output-dir: docs          # GitHub Pages serves the site from /docs on the main branch
+  render:                   # only these files become website pages
+    - index.qmd
+    - dashboard.qmd
+    - rkr-dashboard.qmd
+    - styling.qmd
+    - listings.qmd
+  resources:
+    - data/concierge-canva/*.csv
+    - .nojekyll
+    - portfolio/*.png
+
+execute:
+  freeze: auto              # re-run R code only when a page's source changes
+
+website:
+  title: "Leeann Lewis-Waddell"
+  site-url: "https://lewiswaddell.github.io/M10/"
+  repo-url: "https://github.com/lewiswaddell/M10"
+  repo-actions: [source]
+  page-navigation: true
+  back-to-top-navigation: true
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "RKR Dashboard"
+        menu:
+          - href: dashboard.qmd
+            text: "Dashboard Portal"
+          - href: rkr-dashboard.qmd
+            text: "Open the Dashboard"
+      - href: styling.qmd
+        text: "Styling with CSS/SCSS"
+      - href: listings.qmd
+        text: "Portfolio Listings"
+    right:
+      - icon: github
+        href: "https://github.com/lewiswaddell/M10"
+        aria-label: GitHub repository
+  page-footer:
+    left: "© 2026 Leeann Lewis-Waddell · MSDM, Cal Poly Pomona"
+    right: "Built with [Quarto](https://quarto.org)"
+
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]
+    toc: true
+    toc-title: "On this page"
+    code-copy: true
+    code-tools: false
+    smooth-scroll: true
+    link-external-newwindow: true
