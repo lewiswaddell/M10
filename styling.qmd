@@ -1,0 +1,177 @@
+---
+title: "Styling a Quarto Website with CSS and SCSS"
+subtitle: "How this site gets its Cal Poly Pomona look, and how you can restyle yours"
+---
+
+## Why Style Your Website?
+
+A default Quarto site works, but it looks like every other default Quarto site. A few lines of styling give your portfolio a recognizable brand, make key content stand out, and show employers you pay attention to detail.
+
+## CSS vs. SCSS: What's the Difference?
+
+::: {.columns}
+::: {.column width="48%"}
+::: {.card-green}
+**CSS (Cascading Style Sheets)**
+
+- The language browsers read to style a page
+- Every color and size is written out by hand
+- Great for small, one-off tweaks
+:::
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+::: {.card-gold}
+**SCSS (Sassy CSS)**
+
+- A more powerful version that **compiles into CSS**
+- Adds variables, nesting, mixins, and color math
+- What Quarto themes are built on
+:::
+:::
+:::
+
+## How Quarto Applies Your Styles
+
+1. **Create a style file** in your project folder, such as `custom.scss`.
+2. **Point `_quarto.yml` to it** under `format: html: theme:`.
+3. **Render the site.** Quarto compiles the SCSS with the Bootstrap theme and applies it to every page.
+
+```{.yaml filename="_quarto.yml"}
+format:
+  html:
+    theme:
+      light: [cosmo, custom.scss]   # base theme first, your file second
+```
+
+Listing `custom.scss` **after** `cosmo` means your choices override the theme's defaults.
+
+::: {.callout-tip}
+## Plain CSS works too
+For a simple `.css` file, use `css: styles.css` instead of adding it to `theme`. You lose SCSS features but it is quick for small changes.
+:::
+
+## The Two Sections of a Quarto SCSS File
+
+Quarto requires special comments that divide the file into two parts.
+
+::: {.panel-tabset}
+
+### Defaults (variables)
+
+Variables set **before** the theme is built. Change one value and it updates everywhere.
+
+```{.scss filename="custom.scss"}
+/*-- scss:defaults --*/
+$cpp-green: #1E4D2B;
+$cpp-gold:  #FFB500;
+
+$primary:    $cpp-green;   // buttons, navbar, highlights
+$link-color: #16804A;
+$navbar-hl:  $cpp-gold;    // active and hovered menu items
+```
+
+### Rules (styles)
+
+Normal style rules that use your variables.
+
+```{.scss filename="custom.scss"}
+/*-- scss:rules --*/
+h2 {
+  padding-bottom: 0.3rem;
+  border-bottom: 3px solid rgba($cpp-gold, 0.7);
+}
+```
+
+Every section heading on this site gets its gold underline from this one rule.
+
+:::
+
+## Four SCSS Features I Used, With Live Results
+
+### Variables
+
+Store a brand color once and reuse it. Changing `$cpp-green` restyles the navbar, buttons, links, and cards at the same time.
+
+### Nesting
+
+Write child styles inside the parent. Below, `.tagline` only applies inside `.hero`.
+
+```{.scss}
+.hero {
+  background: linear-gradient(120deg, $cpp-green 0%, lighten($cpp-green, 12%) 100%);
+  color: #fff;
+  .tagline { color: $cpp-gold; font-weight: 600; }
+}
+```
+
+**Live result:**
+
+::: {.hero}
+## A hero banner {.unlisted}
+[This tagline is styled by a nested rule.]{.tagline}
+:::
+
+### Mixins
+
+A mixin is a reusable recipe. I wrote one `soft-card` mixin and created two card styles from it with different accent colors.
+
+```{.scss}
+@mixin soft-card($accent) {
+  background: #ffffff;
+  border-left: 6px solid $accent;
+  border-radius: $border-radius;
+  padding: 1rem 1.25rem;
+}
+.card-green { @include soft-card($cpp-green); }
+.card-gold  { @include soft-card($cpp-gold); }
+```
+
+**Live result:**
+
+::: {.card-green}
+This box uses `.card-green`.
+:::
+
+::: {.card-gold}
+This box uses `.card-gold`. Same recipe, different accent.
+:::
+
+### Color functions and the `&` selector
+
+SCSS can calculate colors (`lighten()`, `darken()`, `rgba()`), and `&:hover` styles the same element when the mouse is over it.
+
+```{.scss}
+.cta {
+  background: $cpp-gold;
+  color: $cpp-green !important;
+  &:hover { transform: translateY(-2px); }
+}
+```
+
+**Live result (hover over it):** <a class="cta" href="#">A call to action button</a>
+
+## Using Your Classes Inside a QMD File
+
+Once a class exists in `custom.scss`, you apply it right in your Markdown. No HTML needed.
+
+| What you want | What you type | Result |
+|---------------|---------------|--------|
+| Style a block of content | `::: {.card-green}` ... `:::` | A bordered card |
+| Style a few words | `[R and tidymodels]{.pill}` | [R and tidymodels]{.pill} |
+| Style a link | `<a class="cta" href="...">` | A gold button |
+
+## Tips for Styling Your Own Site
+
+- **Start with a theme:** pick a Bootswatch theme like `cosmo` or `flatly`, then customize only what you need.
+- **Set variables first:** changing `$primary` does more than dozens of manual rules.
+- **Inspect the page:** right click any element and choose *Inspect* to find the class name you want to style.
+- **Re-render after edits:** run `quarto render` so the new styles reach the `docs` folder before you push.
+
+::: {.callout-note}
+## Learn more
+The [Quarto HTML Theming guide](https://quarto.org/docs/output-formats/html-themes.html) lists every variable you can change.
+:::

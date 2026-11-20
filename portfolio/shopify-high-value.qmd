@@ -1,0 +1,17 @@
+---
+title: "Predicting High-Value Customers"
+description: "Classification models on a Shopify e-commerce dataset to flag customers worth prioritizing."
+date: 2026-09-05
+image: shopify.png
+categories: [Machine Learning, R, E-commerce]
+---
+
+## The Question
+Which shoppers are most likely to become high-value customers?
+
+## My Role
+I owned Analytics Objective 4 in a Group 2 term project for IBM 6540 Marketing Data Science.
+
+## Tools
+- **R and tidymodels** for modeling workflows
+- **Logistic regression, Lasso, and Random Forest** as candidate classifiers

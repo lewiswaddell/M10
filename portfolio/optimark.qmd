@@ -1,0 +1,14 @@
+---
+title: "OptiMark Society Leadership"
+description: "Leading Cal Poly Pomona's Digital Marketing and Analytics Society."
+date: 2026-08-25
+image: optimark.png
+categories: [Leadership, Social Media]
+---
+
+## My Role
+As President of the OptiMark Digital Marketing and Analytics Society, I connect students with hands-on marketing projects and industry partners.
+
+## Highlights
+- **Client partnerships** such as the CPP Farm Store collaboration
+- **Content and events** that grow the society's community

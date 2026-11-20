@@ -1,0 +1,74 @@
+---
+title: "Leeann Lewis-Waddell"
+subtitle: "Digital marketer · Creative strategist · Content producer"
+image: images/headshot.jpg
+toc: false
+about:
+  template: trestles
+  image-shape: round
+  image-width: 14em
+  image-alt: "Headshot of Leeann Lewis-Waddell"
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/lee-waddell-887a1963
+    - icon: github
+      text: GitHub
+      href: https://github.com/lewiswaddell
+    - icon: envelope
+      text: Email
+      href: mailto:llewiswaddell@gmail.com
+---
+
+::: {.hero}
+## Hi, I'm Lee.
+[I turn audience insight into content that moves people to act.]{.tagline}
+:::
+
+I am a graduate student in the **Master of Science in Digital Marketing (MSDM)** program at Cal Poly Pomona and President of the **OptiMark Digital Marketing and Analytics Society**. With a background in media production, I bring together video, social media, and creative strategy to build campaigns that connect with real audiences.
+
+## Career Aspirations
+
+My path has two goals that feed each other:
+
+- **Director of Digital Marketing:** lead a team and a brand's full digital strategy, from creative direction and content to campaigns, budgets, and results.
+- **Collegiate educator:** teach digital marketing and social media marketing at the college level, helping students build practical, job-ready skills.
+
+## Skills
+
+::: {.card-green}
+**Content and creative**\
+[Video production]{.pill} [Editing]{.pill} [Graphic design]{.pill} [Copywriting]{.pill} [UGC]{.pill} [Content marketing]{.pill}
+
+**Strategy and audience**\
+[Creative strategy]{.pill} [Social media management]{.pill} [Audience research]{.pill}
+
+**Management and leadership**\
+[Project and campaign management]{.pill} [Budget management]{.pill} [Talent sourcing and management]{.pill}
+:::
+
+## Education
+
+::: {.card-gold}
+**M.S., Digital Marketing**, Cal Poly Pomona, *2027 (expected)*\
+Culminating project: *Building Sustainable Demand for The Restaurant at Kellogg Ranch*
+:::
+
+::: {.card-gold}
+**A.S., Marketing Management**, Mt. San Antonio College, *2024*
+
+- Certificate: Small Business Management I
+- Certificate: Social Media Marketing
+:::
+
+::: {.card-gold}
+**B.A., Communications (Media Production)**, University of Houston, *2012*
+:::
+
+## Explore This Site
+
+| Page | What you will find |
+|------|--------------------|
+| [RKR Dashboard](dashboard.qmd) | An interactive Quarto dashboard for my culminating project |
+| [Styling with CSS/SCSS](styling.qmd) | How this site's look was built, with live examples |
+| [Portfolio Listings](listings.qmd) | My projects, organized with Quarto Listings |

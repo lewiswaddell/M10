@@ -1,0 +1,50 @@
+---
+title: "RKR Newsletter Dashboard"
+subtitle: "Does a better designed newsletter section bring more diners to The Restaurant at Kellogg Ranch?"
+---
+
+## What This Dashboard Answers
+
+The Restaurant at Kellogg Ranch (RKR) is promoted every week in *The Collins Concierge*, the Collins College newsletter. My MSDM culminating project asks a simple business question:
+
+> **If we change how RKR's section looks, do more readers click "Reserve a Table" and book on OpenTable?**
+
+<a class="cta" href="rkr-dashboard.html">Open the interactive dashboard →</a>
+
+## How the Test Works
+
+The project runs in two phases during the 2026 to 2027 school year:
+
+1. **Fall: button placement.** Move the "Reserve a Table" button to the upper left of RKR's section and compare against past issues.
+2. **Spring: image vs. video.** Keep the button fixed and split each issue so half of readers see an image and half see a video.
+
+## What You Can Do in the Dashboard
+
+::: {.panel-tabset}
+
+### Overview
+Headline numbers for every tracked issue: open rate, "Reserve a Table" click rate, and OpenTable reservations, plus a week by week trend.
+
+### Fall Test
+Compares the upper-left button against the baseline, with a two-proportion test to check whether the lift is more than chance.
+
+### Spring Test
+Compares image and video formats side by side using the same click and reservation measures.
+
+### Data
+A searchable, sortable table of every issue so you can check any number yourself.
+
+:::
+
+## Key Measures
+
+| Measure | How it is calculated | Why it matters |
+|---------|---------------------|----------------|
+| Open rate | Opens ÷ recipients | Shows whether readers see the newsletter at all |
+| Reserve click rate | "Reserve a Table" clicks ÷ opens | Shows whether RKR's section earns attention |
+| Reservations | OpenTable bookings attributed to the newsletter | The business outcome RKR cares about |
+
+::: {.callout-note}
+## About the data
+Real issue data is still being collected. The dashboard currently runs on an **illustrative sample** (`data/rkr_newsletter.csv`) built to match the test design. Swapping in real data only requires replacing that one CSV file; every chart and statistic updates on the next render.
+:::
